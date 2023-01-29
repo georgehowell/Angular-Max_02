@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500;900&display=swap');
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "@material/icon-button";
+@import './assets/scss/breakpoints';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 60px);
+}
+mat-sidenav-content {
+    padding: 10px 5% 0 20%;
+}
+
+#toggleBtn {
+    position: absolute;
+    left: 10px;
+}
+
+.mat-mdc-form-field-hint-wrapper{
+    padding: 0;
+}
+.text-right {text-align: right;}
+.mt-10 {margin-top: 10px;}
+p { font-weight:500;}
+
+.p-0 {padding: 0;}

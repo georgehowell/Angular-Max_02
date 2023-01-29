@@ -1,0 +1,62 @@
+<section class="signup-form">
+    <form fxLayout="column" fxLayoutAlign="space-between center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <!-- - - - - - - - -  E M A I L  - - - - - - - -->
+        <mat-form-field>       <!-- <mat-form-field hintLabel="enter a valid email address"> -->
+            <input type="email" 
+                name="email" 
+                placeholder="Your email" 
+                matInput 
+                ngModel 
+                email 
+                required
+                #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">Email is invalid</mat-error>
+        </mat-form-field>
+
+        <!-- - - - - - - - -  P A S S W O R D  - - - - - - - -->
+        <mat-form-field hintLabel="enter at least 6 characters">
+            <input type="password" 
+                name="password" 
+                placeholder="Your password" 
+                matInput 
+                ngModel 
+                password 
+                required
+                minlength="6"
+                #passwordInput="ngModel">
+            <mat-error *ngIf="passwordInput.hasError('required')">Field must not be empty</mat-error>
+            <mat-hint align="end" *ngIf="!passwordInput.hasError('requred')" class="text-right">{{ passwordInput.value?.length }} / 6</mat-hint>
+        </mat-form-field>
+
+        <!-- - - - - - - - - D A T E  P I C K E R   - - - - - - - -->
+        <mat-form-field>
+            <input 
+                matInput 
+                [max]="maxDate"
+                placeholder="Your birthdate" 
+                [matDatepicker]="picker"
+                name="birthday"
+                ngModel
+                required/>
+            <mat-datepicker-toggle 
+                matSuffix
+                [for]="picker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!-- - - - - - - - -  C H E C K B O X  - - - - - - - -->
+        <mat-checkbox 
+            hintLabel="you must agree in order to continue"
+            ngModel 
+            name="agree" 
+            required
+            color="primary">
+            Agree to terms and conditions
+        </mat-checkbox>
+
+        <button type="submit" mat-raised-button [disabled]="f.invalid">Submit</button>
+    </form>
+</section>

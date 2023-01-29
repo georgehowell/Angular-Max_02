@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularMaterial-Max_v1';
+  title = 'Fitness Tracker';
+  openSideNav = false;
 }
